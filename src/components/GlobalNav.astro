@@ -15,7 +15,12 @@ const navItems = [
   <div class="container mx-auto"> 
     <nav class="flex justify-between items-center">
       <div class="logo">
-        <a href="/">쥐라기</a>
+        <a href="/" class="flex items-center gap-2">
+          <div class="rounded-sm w-10 h-10 overflow-hidden relative">
+            <img src="/logo.png" alt="공주쥐 프로필" class="w-full h-full object-cover" />
+          </div>
+          <span class="text-sm font-bold text-primary-500">쥐라기 | 서울밖 공주쥐와 기록들</span>
+        </a>
       </div>
 	<ul class="flex gap-4">
 		{navItems.map((item) => (
