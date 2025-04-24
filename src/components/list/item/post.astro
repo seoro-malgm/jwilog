@@ -1,0 +1,57 @@
+---
+const { post } = Astro.props;
+
+// 랜덤 배경색 생성
+const getRandomColor = () => {
+  const colors = [
+    'bg-blue-100',
+    'bg-green-100',
+    'bg-yellow-100',
+    'bg-purple-100',
+    'bg-pink-100',
+    'bg-indigo-100',
+    'bg-red-100',
+  ];
+  return colors[Math.floor(Math.random() * colors.length)];
+};
+
+// 랜덤 이모지 생성
+const getRandomEmoji = () => {
+  const emojis = ['📚', '📝', '✍️', '📖', '📰', '📑', '📋', '📓', '📔', '📒'];
+  return emojis[Math.floor(Math.random() * emojis.length)];
+};
+---
+
+<li class="rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all hover:scale-105">
+  <a 
+    href={post.link} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="block"
+  >
+    <div class="relative aspect-video">
+      {post.thumbnail ? (
+        <img 
+          src={post.thumbnail} 
+          alt={post.title}
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+      ) : (
+        <div class={`w-full h-full ${getRandomColor()} flex items-center justify-center`}>
+          <span class="text-4xl">{getRandomEmoji()}</span>
+        </div>
+      )}
+    </div>
+    <div class="p-4">
+      <h3 class="text-lg font-medium text-gray-900 line-clamp-2 mb-2">
+        {post.title}
+      </h3>
+      <div class="flex items-center text-sm text-gray-500">
+        <span class="font-medium">{post.source}</span>
+        <span class="mx-2">·</span>
+        <span>{post.relativeDate}</span>
+      </div>
+    </div>
+  </a>
+</li>

@@ -1,14 +1,17 @@
+---
+import Head from '../components/Head.astro';
+import GlobalNav from '../components/GlobalNav.astro';
+import GlobalFooter from '../components/GlobalFooter.astro';
+---
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
+<html lang="ko-KR">
+	<Head />
 	<body>
-		<slot />
+		<GlobalNav />
+		<div id="container"  class="container mx-auto pt-4 pb-12 min-h-screen">
+			<slot />
+		</div>
+		<GlobalFooter />
 	</body>
 </html>
 
@@ -18,5 +21,7 @@
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		overflow-x: hidden;
 	}
+	
 </style>

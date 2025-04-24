@@ -1,0 +1,14 @@
+---
+import { fetchAllRssPosts } from '../../utils/fetchRecentFeeds';
+import PostItem from './item/post.astro';
+const posts = await fetchAllRssPosts();
+---
+
+<div class="post-list">
+  <h2 class="text-2xl font-bold mb-6">최근 게시물</h2>
+  <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    {posts.map((post) => (
+      <PostItem post={post} />
+    ))}
+  </ul>
+</div>

@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<h1 class="text-2xl font-bold mb-4">Contact</h1>
+  <form action="/api/v1/contact" method="POST">
+  <div class="flex flex-col gap-4">
+    <div class="flex gap-2">
+      <label for="name">성함: </label>
+      <input type="text" name="name" placeholder="Name" />
+    </div>
+    <div class="flex gap-2">
+      <label for="email">연락받을 이메일: </label>
+      <input type="email" name="email" placeholder="Email" />
+    </div>
+    <div class="flex gap-2">
+      <label for="url">추가하고싶은 url: </label>
+      <input type="text" name="url" placeholder="url" />
+    </div>
+  </div>
+  
+  <div class="mt-4">
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md" disabled>Send</button>
+    <span class="text-sm text-gray-500">send는 준비중입니다.</span>
+  </div>
+  </form>
+</Layout>

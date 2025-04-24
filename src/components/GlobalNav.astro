@@ -1,0 +1,36 @@
+---
+const navItems = [
+	{
+		label: '홈',
+		href: '/',
+	},
+	{
+		label: '연락하기',
+		href: '/contact',
+	},
+];
+---
+
+<header id="global-nav">
+  <div class="container mx-auto"> 
+    <nav class="flex justify-between items-center">
+      <div class="logo">
+        <a href="/">쥐라기</a>
+      </div>
+	<ul class="flex gap-4">
+		{navItems.map((item) => (
+			<li>
+				<a href={item.href}>{item.label}</a>
+			</li>
+		))}
+	  </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  #global-nav {
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid var(--color-primary-200);
+  }
+</style>
